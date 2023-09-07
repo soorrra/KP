@@ -1,0 +1,719 @@
+﻿<UserControl x:Class="_3Racha.View.CreateOrderView"
+                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_3Racha.View"
+        xmlns:viewModel="clr-namespace:_3Racha.ViewModel"        
+        mc:Ignorable="d"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" d:DesignWidth="800" Height="526">
+
+
+    <!--<UserControl.DataContext>
+        <Binding RelativeSource="{RelativeSource Self}"/>
+    </UserControl.DataContext>-->
+
+
+    <Grid Height="530" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.Row="1"
+                Background="#EAD7BA"
+                CornerRadius="10" 
+                Padding="10"
+                Visibility="Hidden"
+                Name="borderMain">
+
+            <DataGrid Name="dataGrid1" 
+                  ColumnWidth="*"
+                  Background="#ffff"
+                  BorderThickness="0"
+                  CanUserDeleteRows="True"
+                  IsReadOnly="True" >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text=""/>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button 
+                                                       
+                            Content="+"  
+                            FontSize="12"
+                             FontFamily="Stolzl Book"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top" Click="ButtonAdd_Click" Height="30">
+
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="#EA6449"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#EA6449"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Border Grid.Row="1"
+                Name="borderFirst"
+                CornerRadius="10" 
+                Padding="10">
+
+            <Grid x:Name="Grid1"
+                 >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="225"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="0">
+
+                    </StackPanel>
+
+                    <Button Grid.Column="0"
+                                        
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                            Name="btn1"
+                  
+                VerticalAlignment="Top" Height="298" Margin="28,-20,8,0" Click="btn1_Click" >
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/salads01.png" Stretch="UniformToFill"/>
+
+                        </Button.Background>
+                        <Button.Style>
+                            <Style TargetType="Button">
+
+
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Height="190"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#836EFB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Grid.Column="1"
+                            Command="{Binding LoginCommand}"     
+                            Name="btn2"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top" Click="Button2_Click" Height="249" Margin="28,10,10,0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/soup01.png" Stretch="UniformToFill"/>
+
+                        </Button.Background>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#773DFF"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Height="190"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#836EFB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Grid.Column="1"
+                            Command="{Binding LoginCommand}"
+                            Name="btn3"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top" Click="Button3_Click" Height="361" Margin="195,-49,10,0" Grid.ColumnSpan="2">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/fish01.png" Stretch="UniformToFill"/>
+
+                        </Button.Background>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#773DFF"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Height="190"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#836EFB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Grid.Column="2"
+                            Command="{Binding LoginCommand}"                            
+                            Name="btn4"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top" Click="Button4_Click" Height="281" Margin="195,-9,32,0" Grid.ColumnSpan="2">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/meat01.png" Stretch="UniformToFill"/>
+
+                        </Button.Background>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#773DFF"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Height="190"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#836EFB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+
+
+                    <Button Grid.Column="0"
+                            Command="{Binding LoginCommand}"  
+                            Name="btn5"
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top" Click="Button5_Click" Height="201" Margin="22,10,10,0">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/deserts01.png" Stretch="UniformToFill"/>
+
+                        </Button.Background>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#773DFF"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Height="190"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#836EFB"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+
+
+                </Grid>
+            </Grid>
+
+        </Border>
+        <Grid Visibility="Hidden"
+              Name="gridTop">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="395*"/>
+                <ColumnDefinition Width="146*"/>
+                <ColumnDefinition Width="139*"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        
+                        Grid.Column="1" Grid.ColumnSpan="3" Height="29">
+            </StackPanel>
+
+            <Button Grid.Column="3"
+                            Command="{Binding LoginCommand}"                            
+                            Content="Далее"  
+                           
+                            FontSize="12"
+                             FontFamily="Stolzl Book"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top" Click="Next_Click" Height="30">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#EA6449"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                                    CornerRadius="15"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EC8D00"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button               
+                Content="Назад"  
+                Click="Back_Click"
+                x:Name="Redact_Copy"
+                FontSize="12"
+                             FontFamily="Stolzl Book"
+                Cursor="Hand"
+                BorderThickness="0"
+                Foreground="White"
+                VerticalAlignment="Top" Margin="10,0,10,0" Grid.Column="2" Height="30">
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#EA6449"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Height="30"
+                                        CornerRadius="15"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EC8D00"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <!--First Window-->
+        <Border Background="#EAD7BA"
+                MinWidth="400"
+                MaxWidth="1000"
+                Margin="180,0,146,0" 
+                VerticalAlignment="Top"
+                Padding ="30"
+                Visibility="Hidden"
+                Name="Next1"
+                CornerRadius="50" Height="508" Grid.RowSpan="2" >
+        </Border>
+        <Border Background="White"
+                MinWidth="400"
+                Visibility="Hidden"
+                MaxWidth="1000"
+                Margin="191,8,156,0" 
+                VerticalAlignment="Top"
+                Padding ="30"
+                Name="Next"
+
+                CornerRadius="50" Height="490" Grid.RowSpan="2" >
+
+            <StackPanel>
+
+                <TextBlock Text="Заказ"
+                               Foreground="Black"
+                               FontSize="25"
+                               FontWeight="Bold"
+                               FontFamily="Fonts/#Stolzl" 
+                               Width="74"/>
+
+                <Grid/>
+                <!--  Поля  -->
+                <DataGrid x:Name="dataGrid22" 
+                  ColumnWidth="*"
+                  Background="#ffff"
+                  BorderThickness="0"
+                  CanUserDeleteRows="True"
+                  IsReadOnly="True" Height="253"
+                   >
+                    <DataGrid.Columns>
+
+
+                    </DataGrid.Columns>
+
+
+                </DataGrid>
+                <Grid Height="125">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42*"/>
+                        <RowDefinition Height="37*"/>
+                        <RowDefinition Height="46*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Номер столика:" VerticalAlignment="Center" FontFamily="Stolzl Book" FontSize="16"></TextBlock>
+                    <ComboBox x:Name="comboBox" Margin="136,0,209,0" Height="34"  SelectedIndex="0"/>
+                    <RadioButton Name="Rb_There"
+                                 Tag="{StaticResource color6}"
+                                 Grid.Row="1">
+                        <StackPanel Orientation="Horizontal" Width="168" >
+                            <fa:IconImage Icon="ArrowDown" Style="{StaticResource menuButtonIcon}" Width="26"/>
+                            <TextBlock Text="На месте" FontFamily="Stolzl Book" FontSize="16" Width="81" />
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton Name="Rb_away"
+                                 Tag="{StaticResource color6}"
+                                 Grid.Row="2">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="DoorOpen" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="На вынос" FontFamily="Stolzl Book" FontSize="16" />
+                        </StackPanel>
+                    </RadioButton>
+                    <Button x:Name="otmena" Content="Отмена"
+                        Foreground="White"
+                        FontSize="14"
+                        FontFamily="Stolzl"
+
+                        FontWeight="Medium" Background="#EA6449" Margin="146,41,131,-31" Grid.Row="2" Click="NOTOK_Click">
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#9fc5d5"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseDirectlyOver" Value="True">
+                                        <Setter Property="Background" Value="#8eb1c0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="cl" Content="ОК"
+                        Foreground="White"
+                        FontSize="14"
+                        FontFamily="Stolzl"
+
+                        FontWeight="Medium" Background="#EA6449" Margin="262,41,0,-31" Grid.Row="2" Click="OK_Click">
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#9fc5d5"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseDirectlyOver" Value="True">
+                                        <Setter Property="Background" Value="#8eb1c0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </StackPanel>
+
+        </Border>
+        <!--Second Wondow-->
+        <Border Background="#EAD7BA"
+                MinWidth="400"
+                MaxWidth="1000"
+                Margin="180,2,146,0" 
+                VerticalAlignment="Top"
+                Padding ="30"
+                Name="Final1"
+                Visibility="Hidden"
+                CornerRadius="50" Height="482" Grid.RowSpan="2" >
+        </Border>
+        <Border Background="White"
+                MinWidth="400"
+                MaxWidth="1000"
+                Margin="191,8,156,0" 
+                VerticalAlignment="Top"
+                Padding ="30"
+                Name="Final"
+                Visibility="Hidden"
+                CornerRadius="50" Height="470" Grid.RowSpan="2" >
+
+            <StackPanel>
+
+                <TextBlock Text="Заказ"
+                               Foreground="Black"
+                               FontSize="25"
+                               FontWeight="Bold"
+                               FontFamily="Fonts/#Stolzl" 
+                               Width="74"/>
+
+                <Grid/>
+                <!--  Поля  -->
+                <Grid Height="399">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42*"/>
+                        <RowDefinition Height="37*"/>
+                        <RowDefinition Height="46*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="OrdersTextBlock" FontFamily="Stolzl" FontSize="14" Margin="0,10,10,92"/>
+                    <TextBlock Name="SumsTextBlock" FontFamily="Stolzl" FontSize="14" Margin="0,42,0,55"/>
+                    <TextBlock Name="TextEmail"  FontFamily="Stolzl" FontSize="14" Margin="0,38,0,43" Grid.Row="1">
+                        <TextBlock.Text>Введите Email для отправки чека на почту</TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Name="TextExWordTxt"  FontFamily="Stolzl" FontSize="14" Margin="10,10,-10,100" Grid.Row="2">
+                        <TextBlock.Text>Вывод чека в:</TextBlock.Text>
+                    </TextBlock>
+
+                    <TextBox Name="email" FontFamily="Stolzl" FontSize="14" Margin="0,75,10,0" Grid.Row="1" />
+
+                    <Button x:Name="finbt" Content="ОК"   FontSize="14"
+                        FontFamily="Stolzl"
+                        Foreground="White"
+                        FontWeight="Medium" Background="#EA6449" Margin="262,41,0,-31" Grid.Row="2"  Click="CreateOrder_Click">
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#9fc5d5"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseDirectlyOver" Value="True">
+                                        <Setter Property="Background" Value="#8eb1c0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="exelBt" Content="Exel"   FontSize="14"
+                        FontFamily="Stolzl"
+                        Foreground="White"
+                        FontWeight="Medium" Background="#EA6449" Margin="0,20,280,63" Grid.Row="2"  Click="Exel_Click">
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#9fc5d5"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseDirectlyOver" Value="True">
+                                        <Setter Property="Background" Value="#8eb1c0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="exelBt_Copy" Content="Word"   FontSize="14"
+                        FontFamily="Stolzl"
+                        Foreground="White"
+                        FontWeight="Medium" Background="#EA6449" Margin="135,20,145,64" Grid.Row="2"  Click="Word_Click">
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#9fc5d5"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseDirectlyOver" Value="True">
+                                        <Setter Property="Background" Value="#8eb1c0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="exelBt_Copy1" Content="Txt"   FontSize="14"
+                        FontFamily="Stolzl"
+                        Foreground="White"
+                        FontWeight="Medium" Background="#EA6449" Margin="270,20,10,64" Grid.Row="2"  Click="Txt_Click">
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#9fc5d5"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseDirectlyOver" Value="True">
+                                        <Setter Property="Background" Value="#8eb1c0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+
+                </Grid>
+            </StackPanel>
+
+
+        </Border>
+        <Grid>
+            <Image x:Name="animatedImage" Source="/Images/catWork.png" Margin="438,329,-74,-460" Visibility="Hidden" />
+        </Grid>
+    </Grid>
+</UserControl>

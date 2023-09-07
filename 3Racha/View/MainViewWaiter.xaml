@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="_3Racha.View.MainViewWaiter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_3Racha.View" xmlns:viewmodel="clr-namespace:_3Racha.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewWaiterModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <!--Middle Chart-->
+
+        <Border>
+            <Grid>
+                <TextBlock Name="aniosue" Margin="31,33,553,380" FontFamily="Stolzl Medium" FontSize="16" Foreground="#EA6449"/>
+
+                <TextBlock Text="График загруженности" Margin="31,93,553,317" FontFamily="Stolzl Medium" FontSize="16" Foreground="#EA6449"/>
+                <lvc:CartesianChart Series="{Binding SeriesCollection}" Height="290" Width="290" Foreground="#EA6449" Margin="31,119,479,41">
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Title="Время" Labels="{Binding HourLabels}"/>
+                    </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis Title="Количество заказов"/>
+                    </lvc:CartesianChart.AxisY>
+                </lvc:CartesianChart>
+                <!--<Border Background="#B68E6B"  Width="195" Height="180"  CornerRadius="15" Margin="582,10,24,260">
+                    <Calendar HorizontalAlignment="Center" Height="178" VerticalAlignment="Top" Width="219" Style="{DynamicResource CalendarStyle1}" CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" Margin="0,2,0,0"/>
+                </Border>-->
+                <materialDesign:Card Padding="10" Margin="400,165,26,61">
+                    <StackPanel>
+                        <TextBlock HorizontalAlignment="Left" Name="top" Text="Топ блюд" FontFamily="Stolzl Medium" FontSize="15" Foreground="#EA6449" Margin="10 20" FontWeight="SemiBold" />
+                        <Grid Height="150">
+                            <Grid.ColumnDefinitions>
+                             
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Name="dishIDTextBlock1" Text="Clicks"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" FontFamily="Stolzl Medium"  FontWeight="SemiBold" Foreground="#B68E6B"/>
+                            <TextBlock Name="dishIDTextBlock2" Text="Likes" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" FontFamily="Stolzl Medium" Foreground="#B68E6B" />
+                            <TextBlock Name="dishIDTextBlock3" Text="Followers" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13" FontWeight="SemiBold" FontFamily="Stolzl Medium" Foreground="#B68E6B"/>
+                            
+
+                        </Grid>
+                    </StackPanel>
+                </materialDesign:Card>
+                <!--<TextBlock x:Name="countt" TextWrapping="Wrap" Text="TextBlock"  Margin="386,36,198,374" FontFamily="Stolzl Medium" FontSize="16" Foreground="#EA6449"/>-->
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>
+

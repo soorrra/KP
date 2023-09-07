@@ -1,0 +1,240 @@
+﻿<UserControl x:Class="_3Racha.View.StaffView"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_3Racha.View"
+        xmlns:viewModel="clr-namespace:_3Racha.ViewModel"        
+        mc:Ignorable="d"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        d:DesignHeight="450" d:DesignWidth="800">
+
+
+    <!--<UserControl.DataContext>
+        <Binding RelativeSource="{RelativeSource Self}"/>
+    </UserControl.DataContext>-->
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="423*"/>
+                <ColumnDefinition Width="126*"/>
+                <ColumnDefinition Width="131*"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="0" Grid.ColumnSpan="3" Height="29">
+                <Button Background="Transparent" BorderBrush="Transparent" Click="search_Click">
+                    <fa:IconImage Icon="Search" Height="20" Width="20" Foreground="{StaticResource color9}"/>
+
+                </Button>
+
+                <TextBox Text=""   
+                         Name="TextBox1"
+                    FontSize="13"
+                         Height="24"
+                           Width="300"
+                           Background="Transparent"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="{StaticResource color9}"
+                             CaretBrush="{StaticResource color9}"
+                             BorderBrush="{StaticResource color9}"
+                             BorderThickness="0,0,0,1"                             
+                             VerticalContentAlignment="Center"
+                             Margin="5,5,0,0"></TextBox>
+
+            </StackPanel>
+
+            <Button Grid.Column="3"
+                            Command="{Binding LoginCommand}"                            
+                            Content="Удалить"  
+                           
+                            FontSize="12"
+                            FontFamily="Stolzl Medium"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top" Click="Button_Click" Height="30">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#EA6449"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Height="30"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EC8D00"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button                            
+                Content="Изменить"  
+                Click="redact_Click"
+                Name="Redact"
+                FontSize="12"
+                            FontFamily="Stolzl Medium"
+                Cursor="Hand"
+                BorderThickness="0"
+                Foreground="White"
+                VerticalAlignment="Top" Margin="10,0,10,0" Grid.Column="2" Height="30">
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#EA6449"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Height="30"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EC8D00"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button                            
+                Content="Добавить"  
+                Click="add_Click"
+                x:Name="Redact_Copy"
+                FontSize="12"
+                            FontFamily="Stolzl Medium"
+                Cursor="Hand"
+                BorderThickness="0"
+                Foreground="White"
+                VerticalAlignment="Top" Margin="0,0,1,0" Height="30" Grid.Column="1">
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#EA6449"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Height="30"
+                            CornerRadius="15"
+                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EC8D00"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button                            
+                Content="OK"  
+                Click="redOk_Click"
+                x:Name="redOk"
+                                Visibility="Hidden"
+
+                FontSize="12"
+                FontFamily="Stolzl Medium"
+                Cursor="Hand"
+                BorderThickness="0"
+                Foreground="White"
+                VerticalAlignment="Top" Margin="6,0,0,0" Height="30" Grid.Column="2">
+
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#EA6449"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Height="30"
+                                        CornerRadius="15"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EC8D00"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <Border Grid.Row="1"
+                Background="#EAD7BA"
+                CornerRadius="10" 
+                Padding="10">
+
+            <DataGrid Name="dataGrid1" 
+                  ColumnWidth="*"
+                  Background="#FFFF"
+                  BorderThickness="0"
+                  CanUserDeleteRows="True"
+                  IsReadOnly="True"
+                  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Cursor=""   >
+
+                <!--<DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Foreground" Value="#BCBEE0"/>
+                        <Setter Property="Padding" Value="10,0,0,10"/>
+                        <Setter Property="FontFamily" Value="Montserrat"/>
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>-->
+
+                <DataGrid.Columns>
+                    <!--<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID" HeaderStringFormat=""/>-->
+                    <!--<DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="First name"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Last name"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Phone"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Number"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Address"/>-->
+
+                </DataGrid.Columns>
+
+
+
+            </DataGrid>
+
+        </Border>
+
+    </Grid>
+</UserControl>

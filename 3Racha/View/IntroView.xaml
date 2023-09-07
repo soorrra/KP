@@ -1,0 +1,62 @@
+﻿<Window x:Class="_3Racha.View.IntroView"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:local="clr-namespace:_3Racha"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login" Height="520" Width="500"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property= "FontSize" Value = "13"/>
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="Foreground" Value="#FF808080"/>
+            <Setter Property="FontFamily" Value="Fonts/#Dosis"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property= "FontSize" Value = "13"/>
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="Foreground" Value="#FF808080"/>
+            <Setter Property="FontFamily" Value="Fonts/#Dosis"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+
+
+    </Window.Resources>
+    <Grid>
+        <Border
+            Background="#ffff"
+            CornerRadius="20" Margin="0,36,0,0"/>
+
+        <Image gif:ImageBehavior.AnimatedSource="/Images/introCat.gif" gif:ImageBehavior.RepeatBehavior="Forever" Margin="62,90,62,90"/>
+
+
+        <ProgressBar Margin="0,472,0,36" Maximum="5" Background="{StaticResource color9}"  Foreground="{StaticResource color10}" ValueChanged="ProgressBar_ValueChanged">
+            <ProgressBar.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Value" From="0" To="5" Duration="0:0:4"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ProgressBar.Triggers>
+        </ProgressBar>
+    </Grid>
+</Window>
+
